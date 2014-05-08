@@ -84,4 +84,4 @@ $this->set_in_view(array(
 ));
 ```
 
-Voila les principale fonctionnalité du code :D.
+Voila les principale fonctionnalité du code :D, Pour en connaitre plus vous avez l'API Documentation !
