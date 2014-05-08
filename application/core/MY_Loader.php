@@ -45,9 +45,6 @@ class MY_Loader extends CI_Loader
 		$the_view = $this->view($name,$data, TRUE);
 
 		$data_pass["content"] = $the_view;
-		$data_pass["title"]   = "";
-		$data_pass["js"]      = "";
-		$data_pass["css"]     = "";
 
 		return $this->view($this->layout, $data_pass, $return);
 	} 
