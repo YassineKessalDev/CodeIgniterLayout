@@ -26,10 +26,27 @@ return $this->load->views("layout/header")
 #5 Pour charger un layout avec une vue :
 
 ```php
+$data_view["title"] = "Le titre de la page!";
+
 return $this->load->layout("votre_vue", $data_view, FALSE);
 ```
 
 Vous pouvez mettre le dérnier paramétres a TRUE si vous voulez stocké le layout dans une variable!
+
+Votre layout devra ressemblé a ça et doit étre stocké dans ./application/views/(layout.php) : 
+
+```php
+<html>
+<head>
+	<title><?php echo $title ?></title>
+</head>
+<body>
+
+	<?php echo $content ?>
+
+</body>
+</html>
+```
 
 Pour spécifier le nom du layout vous devrez modifier la valeur de $layout du loader ou celle du controller
 
