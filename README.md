@@ -64,6 +64,21 @@ $this->layout = "monLayout";
 
 Grace au fichier MY_Controller.php vous aurez aussi deux raccourçis : 
 
+**Attention** : Vous devrez hérité vos controlleur avec MY_Controller et non CI_Controller !
+```php
+class Welcome extends MY_Controller
+{
+
+	function index()
+	{
+		// Maintenant ça marche !
+		$this->set_in_view("title","Yassine");
+		return $this->render("welcome/index");
+	}
+
+}
+```
+
 Pour loader un layout avec une vue : 
 
 ```php
