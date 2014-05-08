@@ -1,12 +1,39 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+* Modification du controller de base de codeigniter pour ajouté des helpers pour les vues
+*
+* @package YassineKessalDev\takadum\CodeIgniterEvolution
+* @author Yassine Kessal
+* @link https://github.com/YassineKessalDev/CodeIgniterLayout
+* @version 1.0
+*/
 class MY_Controller extends CI_Controller
 {
 
+	/**
+	* Le chamin du layout par défault a utilisé
+	*
+	* @var string $layout le Chemain du layout
+	* @access public
+	*/
 	public $layout = "layout";
 
+	/**
+	* Les données a faire passé a la vue
+	*
+	* @var array $_data_view Les données a faire passé a la vue
+	* @access private
+	*/
 	private $_data_view = array();
 
+	/**
+	* Racourçi pour la method $this->load->layout();
+	* 
+	* @param string $name Le chemin de la vue
+	* @param array $data Les données a faire passé a la vue
+	* @return string Votre layout avec la vue contenu dans la variable $content
+	*/
 	public function render($name, $data = array())
 	{
 		$this->load->layout = $this->layout;
@@ -16,6 +43,12 @@ class MY_Controller extends CI_Controller
 		return $this->load->layout($name, $this->_data_view);
 	}
 
+	/**
+	* Permet de faire passé des données a la vue plus façilement
+	*
+	* @param string|array $name La clé ou les données a faire passé
+	* @param $value Les données a faire passé associé a la clé $name
+	*/
 	public function set_in_view($name, $value = NULL)
 	{
 		if(is_array($name))
@@ -24,6 +57,11 @@ class MY_Controller extends CI_Controller
 			$this->_data_view[$name] = $value;
 	}
 
+	/**
+	* Retourne toutes les données passé à la vue graçe à c'est raccourçis
+	*
+	* @return array Toutes les données passé a la vue
+	*/
 	public function get_data_view()
 	{
 		return $this->_data_view;
